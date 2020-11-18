@@ -119,13 +119,13 @@ void OfficeSim::stats(){
     awt = awt/nStudents; //finds the average
 
     double ait; //average idle time
-    int wIdle[openwindows]; // array of window idle time integers
+    int wIdle[openwindows]; //array of window idle times
     int li; //longest idle time
     int max = 0; //max value in window array
     int fivemin = 0; //number of windows idle for over 5 minutes
     for(int j = 0; j < openwindows; ++j){
       ait += w[j].idle;
-      wIdle[j] = w[j].idle; // creates new array of idle time integers
+      wIdle[j] = w[j].idle;
       if(wIdle[j] > max){
         li = max;
       }
