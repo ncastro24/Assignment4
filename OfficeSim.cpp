@@ -40,18 +40,18 @@ void OfficeSim::fileInput(){
   ifstream file(filename); //open file
   if(file){
     getline(file, line);
-    openwindows = stoi(line);
-    w = new OfficeWindow[openwindows]; //array of size of amount of open windows
+    openwindows = line;
+    w = new OfficeWindow[openwindows]; //array of the size of amount of open windows
     for (int i = 0; i < openwindows; ++i){
       w[i] = *new OfficeWindow();
     }
     while(getline(file, line)){
-      sat = stoi(line);
+      sat = line;
       getline(file, line);
-      nsa = stoi(line);
+      nsa = line;
       for (int i = 0; i < nsa; ++i){
         getline(file, line);
-        Student* s = new Student(stoi(line), sat);
+        Student* s = new Student(line, sat);
         q->enqueue(s); //add student to queue
       }
     }
@@ -139,7 +139,7 @@ void OfficeSim::stats(){
     sort(sWait, sWait + nStudents);
     int mid = nStudents/2;
     if(nStudents % 2){ //if the size is even
-      medwait = (sWait[mid] + sWait[mid+1])/2;
+      medwait = (sWait[mid] + sWait[mid+1])/2; //do this to get median
     }
     else{ //if the size is odd
       medwait = sWait[mid]; //get middle number of array
